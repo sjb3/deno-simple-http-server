@@ -6,4 +6,5 @@ build:
 
 install:
 	deno install test_server server.ts --alow-net --alow-read
-
+test:
+	deno test --allow-env --allow-write --allow-net
