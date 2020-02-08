@@ -20,10 +20,9 @@ test(async function registerTest() {
     }
   };
   await register(testContext);
-  assertEquals(
-    testContext.response.body,
-    JSON.stringify({ login: testLogin, success: true })
-  );
+  const result = JSON.parse(testContext.response.body);
+  assertEquals(result.login, testLogin);
+  assertEquals(result.success, true);
 });
 
 test(async function loginTest() {
@@ -38,8 +37,7 @@ test(async function loginTest() {
     }
   };
   await login(testContext);
-  assertEquals(
-    testContext.response.body,
-    JSON.stringify({ login: testLogin, success: true })
-  );
+  const result = JSON.parse(testContext.response.body);
+  assertEquals(result.login, testLogin);
+  assertEquals(result.success, true);
 });
